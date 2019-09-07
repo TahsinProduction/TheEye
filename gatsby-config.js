@@ -3,6 +3,7 @@ module.exports = {
     title: `TheEye`,
     description: `Offical Website Of TahsinProduction`,
     author: `@TahsinProduction`,
+    siteUrl: `https://theeye.tahsinproduction.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -10,6 +11,28 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-transformer-remark',
     `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-sitemap`,
+    'gatsby-plugin-robots-txt',
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-147244731-1`,    
+    },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/admin`, `/tags/links`]        
+    }
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://theeye.tahsinproduction.com',
+        sitemap: 'https://theeye.tahsinproduction.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+    }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
